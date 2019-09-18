@@ -12,10 +12,6 @@ helps['launch'] = """
     short-summary: Commands to manage launch extensions.
 """
 
-helps['launch login'] = """
-    type: command
-    short-summary: Login to Launch service.
-"""
 
 helps['launch init'] = """
     type: command

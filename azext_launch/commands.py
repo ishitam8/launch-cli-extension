@@ -17,12 +17,9 @@ def load_command_table(self, _):
 
 
     with self.command_group('launch') as g:
-        g.custom_command('login', 'login_launch')
         # g.command('delete', 'delete')
         g.custom_command('init', 'launch_init')
-        # g.show_command('show', 'get')
-        # g.generic_update_command('update', setter_name='update', custom_func_name='update_launch')
-
+        
 
     with self.command_group('launch', is_preview=True):
         pass
