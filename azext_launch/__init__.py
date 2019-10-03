@@ -13,11 +13,11 @@ class LaunchCommandsLoader(AzCommandsLoader):
     def __init__(self, cli_ctx=None):
         from azure.cli.core.commands import CliCommandType
         from azext_launch._client_factory import cf_launch
-        launch_custom = CliCommandType(
-            operations_tmpl='azext_launch.custom#{}',
+        launch_init = CliCommandType(
+            operations_tmpl='azext_launch.launch_init#{}',
             client_factory=cf_launch)
         super(LaunchCommandsLoader, self).__init__(cli_ctx=cli_ctx,
-                                                  custom_command_type=launch_custom)
+                                                  custom_command_type=launch_init)
 
     def load_command_table(self, args):
         from azext_launch.commands import load_command_table

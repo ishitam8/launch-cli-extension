@@ -9,7 +9,7 @@ from knack.help_files import helps  # pylint: disable=unused-import
 
 helps['launch'] = """
     type: group
-    short-summary: Commands to manage launch extensions.
+    short-summary: Manage launch service.
 """
 
 

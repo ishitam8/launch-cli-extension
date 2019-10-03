@@ -37,7 +37,7 @@ CLASSIFIERS = [
 # TODO: Add any additional SDK dependencies here
 DEPENDENCIES = [
     'azure-cli-core',
-    'keyring==17.1.1'
+    'PyGithub==1.43.8'
 ]
 
 with open('README.rst', 'r', encoding='utf-8') as f:

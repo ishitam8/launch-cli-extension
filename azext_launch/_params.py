@@ -14,9 +14,5 @@ def load_arguments(self, _):
 
     launch_name_type = CLIArgumentType(options_list='--launch-name-name', help='Name of the launch extension.', id_part='name')
 
-    with self.argument_context('launch login') as c:
-        c.argument('github_username', launch_name_type, options_list=['--username', '-u'])
-        c.argument('github_password', launch_name_type, options_list=['--password', '-p'])
-        c.argument('github_token', launch_name_type, options_list=['--token'])
 
     

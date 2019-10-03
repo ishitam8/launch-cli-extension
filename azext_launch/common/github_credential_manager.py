@@ -36,7 +36,7 @@ class GithubCredentialManager():
                                          'with approproate permissions from GitHub Developer settings and paste here.')
             print('')
             return
-        self.password = prompt_pass(msg='Enter your GitHub password: ', confirm=True)
+        self.password = prompt_pass(msg='Enter your GitHub password: ')
         print('')
         if not note:
             note = "LaunchCLIExtensionToken_" + datetime_now_as_string()

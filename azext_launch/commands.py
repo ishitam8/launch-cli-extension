@@ -9,18 +9,7 @@ from azext_launch._client_factory import cf_launch
 
 
 def load_command_table(self, _):
+    with self.command_group('launch',is_preview=True) as g:
+        g.custom_command('init', 'launch_auth_and_init')
 
-    # TODO: Add command type here
-    # launch_sdk = CliCommandType(
-    #    operations_tmpl='<PATH>.operations#None.{}',
-    #    client_factory=cf_launch)
-
-
-    with self.command_group('launch') as g:
-        # g.command('delete', 'delete')
-        g.custom_command('init', 'launch_init')
-        
-
-    with self.command_group('launch', is_preview=True):
-        pass
 
