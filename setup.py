@@ -14,8 +14,7 @@ except ImportError:
     from distutils import log as logger
     logger.warn("Wheel is not available, disabling bdist_wheel hook")
 
-# TODO: Confirm this is the right version number you want and it matches your
-# HISTORY.rst entry.
+
 VERSION = '0.1.0'
 
 # The full list of classifiers is available at
@@ -48,16 +47,14 @@ with open('HISTORY.rst', 'r', encoding='utf-8') as f:
 setup(
     name='launch',
     version=VERSION,
-    description='Microsoft Azure Command-Line Tools launch extension Extension',
-    # TODO: Update author and email, if applicable
-    author='Microsoft Corporation',
-    author_email='azpycli@microsoft.com',
-    # TODO: consider pointing directly to your source code instead of the generic repo
-    url='https://github.com/Azure/azure-cli-extensions',
+    description='Extension to set-up launch service for your repo',
+    author='Microsoft',
+    author_email='vsts_social@microsoft.com',
+    url='https://github.com/ishitam/launch-cli-extension',
     long_description=README + '\n\n' + HISTORY,
     license='MIT',
     classifiers=CLASSIFIERS,
-    packages=find_packages(),
+    packages=find_packages(exclude=["*.test", "*.test.*", "test.*", "test"]),
     install_requires=DEPENDENCIES,
     package_data={'azext_launch': ['azext_metadata.json']},
 )

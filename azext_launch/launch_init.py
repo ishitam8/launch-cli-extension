@@ -8,7 +8,7 @@ from knack.prompting import NoTTYException, prompt_pass, prompt
 from github import Github,GithubException,TwoFactorException
 from azext_launch.common.github_credential_manager import GithubCredentialManager
 from azext_launch.common.const import (LAUNCH_AZURE_APP_SERVICE_URL,GITHUB_REQUEST_HEADERS,
-                                        LAUNCH_SERVICE_CLI_AUTH_CONFIG_URL, LAUNCH_ORG_PIPELINE_SETUP)
+                                     LAUNCH_ORG_PIPELINE_SETUP)
 from azext_launch.common.prompting import (prompt_user_friendly_choice_list,
                                             verify_is_a_tty_or_raise_error,
                                             prompt_not_empty)
@@ -72,29 +72,6 @@ def launch_pipeline_setup(github_token,github_obj,github_repo):
 def get_github_pat_token():
     github_manager = GithubCredentialManager()
     return github_manager.get_token()
-
-
-def setup_repo_hooks(repo_hooks_url,token, pipeline_url):
-    request_body = {
-        'name':'web',
-        'active':True,
-        'events': [
-            'push',
-            'pull_request'
-        ],
-        'config':{
-            'url':pipeline_url,
-            'content_type':'json',
-            'insecure_ssl':'0'
-        }
-    }
-    response = requests.post(repo_hooks_url,json=request_body, auth=('', token), headers=GITHUB_REQUEST_HEADERS)
-    if response.status_code == 201:
-        print('Webhook configured successfully.')
-    elif response.status_code == 422:
-        raise CLIError(response.json()['errors'][0]['message'])
-    else:
-        CLIError("Couldn't configure webhooks.")
 
     
 def get_repo_from_user(github_obj):
